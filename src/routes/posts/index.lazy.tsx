@@ -15,19 +15,6 @@ function Post() {
 
   const navigate = useNavigate();
 
-  //   <Link
-  //   to="/shop"
-  //   search={{
-  //     pageIndex: 3,
-  //     includeCategories: ['electronics', 'gifts'],
-  //     sortBy: 'price',
-  //     desc: true,
-  //   }}
-  // />
-
-  // Route.useSearch
-  const routeApi = getRouteApi("/posts/$postId");
-
   return (
     <Flex gap={4} direction="column">
       {posts?.slice(0, 10).map((post: any) => (
