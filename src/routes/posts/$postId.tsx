@@ -1,7 +1,6 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { Post, User } from "../../types";
-import { Loader } from "../../Components/Loader";
-import { NotFound } from "../../Components/NotFound";
+import { Loader, NotFound } from "../../Components";
 
 export const Route = createFileRoute("/posts/$postId")({
   loader: async ({ params }) => {

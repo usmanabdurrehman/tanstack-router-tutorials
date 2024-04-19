@@ -13,8 +13,7 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as TImport } from './routes/t'
-import { Route as PillImport } from './routes/pill'
+import { Route as MeowImport } from './routes/meow'
 import { Route as PostsIndexImport } from './routes/posts/index'
 import { Route as PostsPostIdImport } from './routes/posts/$postId'
 
@@ -30,13 +29,8 @@ const AboutLazyRoute = AboutLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
-const TRoute = TImport.update({
-  path: '/t',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PillRoute = PillImport.update({
-  path: '/pill',
+const MeowRoute = MeowImport.update({
+  path: '/meow',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -63,12 +57,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/pill': {
-      preLoaderRoute: typeof PillImport
-      parentRoute: typeof rootRoute
-    }
-    '/t': {
-      preLoaderRoute: typeof TImport
+    '/meow': {
+      preLoaderRoute: typeof MeowImport
       parentRoute: typeof rootRoute
     }
     '/about': {
@@ -90,8 +80,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  PillRoute,
-  TRoute,
+  MeowRoute,
   AboutLazyRoute,
   PostsPostIdRoute,
   PostsIndexRoute,
