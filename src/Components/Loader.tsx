@@ -1,4 +1,4 @@
-import { Box, Flex, Img, Spinner } from "@chakra-ui/react";
+import { Flex, Spinner } from "@chakra-ui/react";
 import React from "react";
 
 export const Loader = () => {
@@ -11,6 +11,7 @@ export const Loader = () => {
         color="blue.500"
         size="xl"
       />
+      <div></div>
     </Flex>
   );
 };

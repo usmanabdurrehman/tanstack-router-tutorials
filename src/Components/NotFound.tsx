@@ -1,6 +1,6 @@
-import { Flex, Icon, Img, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
-import { EmojiGrimace, XCircleFill } from "react-bootstrap-icons";
+import { EmojiGrimace } from "react-bootstrap-icons";
 
 export const NotFound = () => {
   return (
@@ -17,7 +17,7 @@ export const NotFound = () => {
     >
       <EmojiGrimace color="#ff7300" height="30px" width="30px" />
       <Text fontSize="medium" fontWeight={"bold"} color="#ff7300">
-        Post Not Found
+        Resource Not Found
       </Text>
     </Flex>
   );

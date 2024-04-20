@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  createRootRoute,
-  Link,
-  Outlet,
-  ScrollRestoration,
-} from "@tanstack/react-router";
+import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Box, Flex, Text } from "@chakra-ui/react";
 
@@ -25,7 +20,7 @@ export const Route = createRootRoute({
             <Link to="/">Study.io</Link>
           </Text>
           <Flex alignItems={"center"} gap={4}>
-            <Link to="/about" className="link" preload="intent">
+            <Link to="/about" className="link">
               About
             </Link>
             <Link to="/posts" className="link">

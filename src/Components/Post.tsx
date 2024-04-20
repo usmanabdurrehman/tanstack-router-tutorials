@@ -1,16 +1,13 @@
 import React from "react";
-import {
-  createLazyFileRoute,
-  getRouteApi,
-  useNavigate,
-} from "@tanstack/react-router";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { ArrowLeftSquare } from "react-bootstrap-icons";
+import { Post as PostType, User } from "../types";
+import { getRouteApi, useNavigate } from "@tanstack/react-router";
+
 const route = getRouteApi("/posts/$postId");
 
 export function Post() {
   const { post, user } = route.useLoaderData();
-
   const navigate = useNavigate();
 
   return (

@@ -1,10 +1,8 @@
-import React from "react";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 export const Route = createLazyFileRoute("/")({
-  component: Home,
+  component: () => <div>Hello /!</div>,
 });
 
-function Home() {
-  return <div>Hello from Home!</div>;
-}
+// /posts/
+// /posts/:postId

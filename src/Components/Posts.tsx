@@ -1,15 +1,13 @@
-import React from "react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Post } from "../types";
 
 const route = getRouteApi("/posts/");
 
 export function Posts() {
   const posts = route.useLoaderData();
-  console.log({ posts });
-  const { page = 0 } = route.useSearch();
-
   const navigate = useNavigate();
+  const { page } = route.useSearch();
 
   return (
     <Flex gap={2} direction="column" height="100%">
@@ -19,7 +17,7 @@ export function Posts() {
             cursor={"pointer"}
             p={2}
             onClick={() => {
-              navigate({ to: `/posts/$postId`, params: { postId: post.id } });
+              navigate({ to: "/posts/$postId", params: { postId: post?.id } });
             }}
             transition="0.2s"
             _hover={{
@@ -40,19 +38,17 @@ export function Posts() {
       </Flex>
       <Flex justifyContent={"flex-end"} gap={2}>
         <Button
-          onClick={() => navigate({ to: `/posts`, search: { page: page - 1 } })}
+          onClick={() => {
+            navigate({ to: "/posts", search: { page: (page || 0) - 1 } });
+          }}
           isDisabled={!page}
         >
           Prev
         </Button>
         <Button
-          onClick={() =>
-            navigate({
-              to: `/posts`,
-              search: { page: page + 1 },
-            })
-          }
-          isDisabled={page === 10}
+          onClick={() => {
+            navigate({ to: "/posts", search: { page: (page || 0) + 1 } });
+          }}
         >
           Next
         </Button>

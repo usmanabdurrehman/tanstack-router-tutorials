@@ -1,4 +1,4 @@
-import { Flex, Icon, Img, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { XCircleFill } from "react-bootstrap-icons";
 
