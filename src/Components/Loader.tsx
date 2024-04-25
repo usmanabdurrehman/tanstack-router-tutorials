@@ -11,7 +11,6 @@ export const Loader = () => {
         color="blue.500"
         size="xl"
       />
-      <div></div>
     </Flex>
   );
 };

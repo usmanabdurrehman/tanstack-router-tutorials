@@ -6,14 +6,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { routeTree } from "./routeTree.gen";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
-import { Error, Loader, NotFound } from "./Components";
+import { Loader } from "./Components";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const router = createRouter({
   routeTree,
   defaultPreload: "intent",
   defaultPendingComponent: Loader,
-  defaultNotFoundComponent: NotFound,
-  defaultErrorComponent: Error,
+  context: { queryClient },
+  // Since we're using React Query, we don't want loader calls to ever be stale
+  // This will ensure that the loader is always called when the route is preloaded or visited
+  defaultPreloadStaleTime: 0,
 });
 
 declare module "@tanstack/react-router" {
@@ -26,8 +31,10 @@ const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
-    <ChakraProvider>
-      <RouterProvider router={router} />
-    </ChakraProvider>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider>
+        <RouterProvider router={router} />
+      </ChakraProvider>
+    </QueryClientProvider>
   );
 }

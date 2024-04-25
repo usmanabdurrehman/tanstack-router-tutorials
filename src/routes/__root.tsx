@@ -1,9 +1,17 @@
 import React from "react";
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import {
+  createRootRoute,
+  createRootRouteWithContext,
+  Link,
+  Outlet,
+} from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { QueryClient } from "@tanstack/react-query";
 
-export const Route = createRootRoute({
+export const Route = createRootRouteWithContext<{
+  queryClient: QueryClient;
+}>()({
   component: () => (
     <>
       <Flex direction={"column"} height="100vh">
@@ -20,8 +28,8 @@ export const Route = createRootRoute({
             <Link to="/">Study.io</Link>
           </Text>
           <Flex alignItems={"center"} gap={4}>
-            <Link to="/about" className="link">
-              About
+            <Link to="/fault" className="link">
+              Fault
             </Link>
             <Link to="/posts" className="link">
               Posts
