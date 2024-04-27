@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Post } from "../../types";
+import { getPosts } from "../../queries/getPosts";
 
 export const Route = createFileRoute("/posts/")({
-  loader: async () => {
-    const posts: Post[] = await (
-      await fetch("https://jsonplaceholder.typicode.com/posts")
-    ).json();
-    return posts;
+  loader: async ({ context: { queryClient } }) => {
+    return queryClient.ensureQueryData(getPosts);
   },
 });

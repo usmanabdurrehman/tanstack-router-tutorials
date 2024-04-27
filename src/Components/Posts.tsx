@@ -1,11 +1,13 @@
 import { Flex, Text } from "@chakra-ui/react";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { getPosts } from "../queries/getPosts";
 
 const route = getRouteApi("/posts/");
 
 export function Posts() {
   const navigate = useNavigate();
-  const posts = route.useLoaderData();
+  const { data: posts } = useSuspenseQuery(getPosts);
 
   return (
     <Flex flex="1" overflow="auto" gap={4} direction="column">

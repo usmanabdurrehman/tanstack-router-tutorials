@@ -1,11 +1,29 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import { ErrorComponentProps } from "@tanstack/react-router";
+import { useQueryErrorResetBoundary } from "@tanstack/react-query";
+import { ErrorComponentProps, useRouter } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { XCircleFill } from "react-bootstrap-icons";
 
 export const Error = ({ reset }: ErrorComponentProps) => {
+  const router = useRouter();
+
+  const queryErrorResetBoundary = useQueryErrorResetBoundary();
+
+  useEffect(() => {
+    queryErrorResetBoundary.reset();
+  }, [queryErrorResetBoundary]);
+
   return (
     <Box>
-      <Button onClick={() => {}} size="sm" fontSize="small" display={"block"}>
+      <Button
+        onClick={() => {
+          reset();
+          router.invalidate();
+        }}
+        size="sm"
+        fontSize="small"
+        display={"block"}
+      >
         Try again?
       </Button>
 
