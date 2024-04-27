@@ -23,5 +23,5 @@ export const Route = createFileRoute("/fault")({
 
 function FaultComponent() {
   const { data } = useSuspenseQuery(getFaultDetail);
-  return JSON.stringify(data || "{}");
+  return <pre>{JSON.stringify(data || "{}")}</pre>;
 }

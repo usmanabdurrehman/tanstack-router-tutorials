@@ -5,11 +5,7 @@ const app = express();
 app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 
-let index = 0;
-
 app.get("/data", (req, res) => {
-  index += 1;
-  if (index % 2 === 0) return res.sendStatus(500);
   return res.send({ numPosts: 10 });
 });
 
