@@ -1583,11 +1583,6 @@
   resolved "https://registry.yarnpkg.com/@tanstack/history/-/history-1.26.10.tgz#fa67fd8a3e1a93ad626860afc3d6b5073b8be480"
   integrity sha512-fHx8RQ3liEDhueIemUggBGmqYnK6vOxtxCduolW7r6ExBEQVwKdLEcaUobxp6BxcXLQ7z/qhXAptlOlYi4FFXg==
 
-"@tanstack/history@1.28.9":
-  version "1.28.9"
-  resolved "https://registry.yarnpkg.com/@tanstack/history/-/history-1.28.9.tgz#487d4414c242d1fe5eacdff109fa25f08da81e11"
-  integrity sha512-WgTFJhHaZnGZPyt0H11xFhGGDj1MtA1mrUmdAjB/nhVpmsAYXsSB5O+hkF9N66u7MjbNb405wTb9diBsztvI5w==
-
 "@tanstack/query-core@5.29.0":
   version "5.29.0"
   resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.29.0.tgz#d0b3d12c07d5a47f42ab0c1ed4f317106f3d4b20"
@@ -1618,16 +1613,6 @@
   integrity sha512-gsZvv7VFRDRV2/A6K4hI92p10c5P8t96m5w44R1DVGRu4j9ANVDoDme1TDXHAgZGkuSalu7/MMdem5+cYsRnXA==
   dependencies:
     "@tanstack/history" "1.26.10"
-    "@tanstack/react-store" "^0.2.1"
-    tiny-invariant "^1.3.1"
-    tiny-warning "^1.0.3"
-
-"@tanstack/react-router@^1.30.1":
-  version "1.30.1"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-router/-/react-router-1.30.1.tgz#93e501ec4cb639a2e5628ca7c3a7a36a9904e103"
-  integrity sha512-EQupCMFL0gkVQwPPtBMyv8dKjpvQi+jK+uTvWIWvvyaQgzyY9cXRx/krA7wFysVxcr28LmcYQkIlDAwUqdf4HA==
-  dependencies:
-    "@tanstack/history" "1.28.9"
     "@tanstack/react-store" "^0.2.1"
     tiny-invariant "^1.3.1"
     tiny-warning "^1.0.3"

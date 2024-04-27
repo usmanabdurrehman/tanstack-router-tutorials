@@ -8,11 +8,8 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { QueryClient } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-export const Route = createRootRouteWithContext<{
-  queryClient: QueryClient;
-}>()({
+export const Route = createRootRoute({
   component: () => (
     <>
       <Flex direction={"column"} height="100vh">
@@ -43,7 +40,6 @@ export const Route = createRootRouteWithContext<{
       </Flex>
 
       <TanStackRouterDevtools />
-      <ReactQueryDevtools />
     </>
   ),
 });
