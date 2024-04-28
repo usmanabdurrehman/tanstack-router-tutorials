@@ -1,11 +1,16 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { ArrowLeftSquare } from "react-bootstrap-icons";
 import { getRouteApi, useNavigate } from "@tanstack/react-router";
+import { getPostDetail } from "../queries/getPostDetail";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 const route = getRouteApi("/posts/$postId");
 
 export function Post() {
-  const { user, post } = route.useLoaderData();
+  const { postId } = route.useParams();
+  const {
+    data: { user, post },
+  } = useSuspenseQuery(getPostDetail(postId));
 
   const navigate = useNavigate();
 
